@@ -1,4 +1,4 @@
-import { Profiles } from "@/lib/types/profile";
+import { Profiles } from "@/src/lib/types/profile";
 
 export let profiles: Profiles = {
   transformateurAmes: {

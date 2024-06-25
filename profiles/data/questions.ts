@@ -1,4 +1,4 @@
-import { Page } from "@/lib/types/element";
+import { Page } from "@/src/lib/types/element";
 import { choices } from "./choices";
 
 export const questions: Page[] = [

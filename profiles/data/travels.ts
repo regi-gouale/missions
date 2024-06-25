@@ -1,4 +1,4 @@
-import { Travels } from "@/lib/types/travel";
+import { Travels } from "@/src/lib/types/travel";
 
 export let travels: Travels = {
   itinerant: {

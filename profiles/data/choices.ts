@@ -1,4 +1,4 @@
-import { Choice } from "@/lib/types/choice";
+import { Choice } from "@/src/lib/types/choice";
 
 export const choices: Choice[] = [
   { value: 4, text: "Tout à fait" },

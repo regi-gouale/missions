@@ -1,4 +1,4 @@
-import { Page } from "@/lib/types/element";
+import { Page } from "@/src/lib/types/element";
 
 export const firstPage: Page = {
   elements: [

@@ -1,4 +1,4 @@
-import { shuffle } from "@/lib/utils";
+import { shuffle } from "@/src/lib/utils";
 import { firstPage } from "./first.page";
 import { questions } from "./questions";
 
