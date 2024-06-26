@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -14,4 +14,10 @@ export default function Results() {
       </Link>
     </div>
   );
+}
+
+export const page = async () => {
+  return (
+    <div>page</div>
+  )
 }
