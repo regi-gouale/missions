@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { LayeredLightPanelless } from "@/src/lib/themes/layered-light-panelless";
 import { determineQuizProfile } from "@/src/lib/utils";
 
+import "survey-core/defaultV2.min.css";
+
 export default function QuizComponent() {
   const router = useRouter();
   const model = new Model(quiz);
