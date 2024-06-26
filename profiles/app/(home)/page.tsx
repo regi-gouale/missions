@@ -1,6 +1,8 @@
 import QuizComponent from "@/components/quiz";
 import { LoginButton, LogoutButton } from "@/components/ui/authbutton";
+import { Button } from "@/components/ui/button";
 import { auth } from "@/src/lib/auth";
+import Link from "next/link";
 import React from "react";
 
 export default async function HomePage() {
@@ -12,7 +14,11 @@ export default async function HomePage() {
         {session ? "Authenticated" + session?.user.email : "Not authenticated"}
       </h2>
       <div>{session?.user ? <LogoutButton /> : <LoginButton />}</div>
-      <QuizComponent />
+      <div>
+        <Link href="/quiz">
+          <Button>Start Quiz</Button>
+        </Link>
+      </div>
     </div>
   );
 }
