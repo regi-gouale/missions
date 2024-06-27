@@ -3,7 +3,6 @@ import { travels } from "@/data/travels";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { Page } from "./types/element";
-import prisma from "./prisma";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -77,33 +76,34 @@ export async function determineQuizProfile(data: Map<string, any>) {
     sedentaire: travel["sedentaire"],
   };
 
-  await saveProfile(profileTravel);
+  const savedProfile = await saveProfile(profileTravel);
 
-  let _profile = Object.entries(profile);
-  let _travel = Object.entries(travel);
+  // let _profile = Object.entries(profile);
+  // let _travel = Object.entries(travel);
 
-  _profile.sort((firstObject, secondObject) =>
-    firstObject[1] < secondObject[1]
-      ? 1
-      : firstObject[1] === secondObject[1]
-      ? firstObject[0] > secondObject[0]
-        ? 1
-        : -1
-      : -1
-  );
+  // _profile.sort((firstObject, secondObject) =>
+  //   firstObject[1] < secondObject[1]
+  //     ? 1
+  //     : firstObject[1] === secondObject[1]
+  //     ? firstObject[0] > secondObject[0]
+  //       ? 1
+  //       : -1
+  //     : -1
+  // );
 
-  _travel.sort((firstObject, secondObject) =>
-    firstObject[1] < secondObject[1]
-      ? 1
-      : firstObject[1] === secondObject[1]
-      ? firstObject[0] > secondObject[0]
-        ? 1
-        : -1
-      : -1
-  );
+  // _travel.sort((firstObject, secondObject) =>
+  //   firstObject[1] < secondObject[1]
+  //     ? 1
+  //     : firstObject[1] === secondObject[1]
+  //     ? firstObject[0] > secondObject[0]
+  //       ? 1
+  //       : -1
+  //     : -1
+  // );
+  // return savedProfile.data.id;
   return {
-    profile: _profile,
-    travel: _travel,
+    profile: savedProfile.data.id,
+    missionary: savedMissionary.data.id,
   };
 }
 

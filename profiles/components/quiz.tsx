@@ -14,10 +14,11 @@ export default function QuizComponent() {
   const model = new Model(quiz);
   model.applyTheme(LayeredLightPanelless);
 
-  model.onComplete.add((sender, options) => {
-    determineQuizProfile(sender.data);
-
-    router.push(`/results`);
+  model.onComplete.add(async (sender, options) => {
+    const data = await determineQuizProfile(sender.data);
+    const profileId = data.profile;
+    const missionaryId = data.missionary;
+    router.push(`/results?profile=${profileId}&missionary=${missionaryId}`);
   });
   return <Survey model={model} />;
 }

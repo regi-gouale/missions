@@ -25,6 +25,7 @@
     "survey-core": "^1.11.3",
     "survey-pdf": "^1.11.3",
     "survey-react-ui": "^1.11.3",
+    "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },
