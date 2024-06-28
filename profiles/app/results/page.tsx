@@ -1,20 +1,21 @@
 "use client";
+
 import ResultsComponent from "@/components/results";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import useSWR, { Fetcher } from "swr";
+import { Suspense } from "react";
+import useSWR from "swr";
 
 const fetcher = async (...args: [RequestInfo, RequestInit?]) => {
   const res = await fetch(...args);
   return res.json();
 };
 
-export default function Results() {
+const ResultsSearch = () => {
   const searchParams = useSearchParams();
   const profileId = searchParams.get("profile");
   const missionaryId = searchParams.get("missionary");
-  // console.log(profileId, missionaryId);
 
   const {
     data: profile,
@@ -33,9 +34,6 @@ export default function Results() {
   if (profileIsLoading || missionaryIsloading) {
     return <div>Loading...</div>;
   } else {
-    // console.log(profile);
-    // console.log(missionary);
-
     const profileData = {
       gagneurAmes: profile!.data.gagneurAmes,
       coordinateurMission: profile.data.coordinateurMission,
@@ -46,8 +44,6 @@ export default function Results() {
     let _profile = Object.entries(profileData).sort((a, b) =>
       a[1] < b[1] ? 1 : a[1] === b[1] ? (a[0] > b[0] ? 1 : -1) : -1
     );
-    // console.log(_profile[0][0]);
-    // console.log(_profile[1][0]);
 
     const travelData = {
       sedentaire: profile.data.sedentaire,
@@ -57,7 +53,6 @@ export default function Results() {
     let _travel = Object.entries(travelData).sort((a, b) =>
       a[1] < b[1] ? 1 : a[1] === b[1] ? (a[0] > b[0] ? 1 : -1) : -1
     );
-    // console.log(_travel[0][0]);
 
     const missionaryData = {
       username: missionary.data.username,
@@ -78,7 +73,13 @@ export default function Results() {
         />
       </div>
     );
-    // console.log(profileData);
-    // console.log(travelData);
   }
+}
+
+export default function Results() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultsSearch />
+    </Suspense>
+  );
 }

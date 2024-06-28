@@ -1,4 +1,3 @@
-import QuizComponent from "@/components/quiz";
 import { LoginButton, LogoutButton } from "@/components/ui/authbutton";
 import { Button } from "@/components/ui/button";
 import { auth } from "@/src/lib/auth";
@@ -7,6 +6,11 @@ import React from "react";
 
 export default async function HomePage() {
   const session = await auth();
+  if (!session){
+    return <div>Not authenticated</div>
+  } else if (!session.user){
+    return <div>Not authenticated</div>
+  }
   return (
     <div>
       <h1>Welcome to the Quiz App</h1>
