@@ -1,5 +1,6 @@
 import { Page } from "@/src/lib/types/element";
 import { choices } from "./choices";
+import { Choice } from "@/src/lib/types/choice";
 
 export const questions: Page[] = [
   {
@@ -1386,3 +1387,30 @@ export const questions: Page[] = [
     ],
   },
 ];
+
+export const questionnaire: Questionnaire[] = [
+  {
+    id: "gagneurAmes-1",
+    question:
+      "Je suis convaincu que l'évangélisation est la première mission de l'Eglise.",
+    options: choices,
+  },
+  {
+    id: "gagneurAmes-2",
+    question:
+      "Je suis convaincu que l'évangélisation est la première mission de l'Eglise.",
+    options: choices,
+  },
+  {
+    id: "gagneurAmes-3",
+    question:
+      "Je suis convaincu que l'évangélisation est la première mission de l'Eglise.",
+    options: choices,
+  },
+];
+
+export type Questionnaire = {
+  question: string;
+  options: Choice[];
+  id: string;
+};
