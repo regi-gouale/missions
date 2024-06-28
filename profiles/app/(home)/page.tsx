@@ -6,13 +6,11 @@ import React from "react";
 
 export default async function HomePage() {
   const session = await auth();
-  if (!session){
-    return <div>Not authenticated</div>
-  } else if (!session.user){
-    return <div>Not authenticated</div>
+  if (!session || !session.user) {
+    return <div>Not authenticated</div>;
   }
   return (
-    <div>
+    <div className="flex min-h-screen flex-col items-center p-8">
       <h1>Welcome to the Quiz App</h1>
       <h2>
         {session ? "Authenticated" + session?.user.email : "Not authenticated"}

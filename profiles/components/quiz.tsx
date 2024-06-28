@@ -1,6 +1,5 @@
 "use client";
 
-import { quiz } from "../data/quiz";
 import { Model } from "survey-core";
 import { Survey } from "survey-react-ui";
 import { useRouter } from "next/navigation";
@@ -9,7 +8,7 @@ import { determineQuizProfile } from "@/src/lib/utils";
 
 import "survey-core/defaultV2.min.css";
 
-export default function QuizComponent() {
+export default function QuizComponent({quiz}: {quiz: any}) {
   const router = useRouter();
   const model = new Model(quiz);
   model.applyTheme(LayeredLightPanelless);
