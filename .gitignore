@@ -37,6 +37,6 @@ next-env.d.ts
 
 /.vscode
 /__pycache__
-profiles/.env
-profiles/prisma/dev.db
-profiles/prisma/dev.db-journal
+.env
+prisma/dev.db
+prisma/dev.db-journal
